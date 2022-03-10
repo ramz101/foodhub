@@ -1,6 +1,8 @@
 // ignore_for_file: lines_longer_than_80_chars
 
 import 'package:flutter/material.dart';
+import 'card1.dart';
+import 'card2.dart';
 
 class Home extends StatefulWidget {
   const Home({ Key? key }) : super(key: key);
@@ -14,8 +16,8 @@ class _HomeState extends State<Home> {
   int _selectedIndex = 0;
   //8
   static List<Widget> pages = <Widget> [
-    Container(color: Colors.red,),
-    Container(color: Colors.green),
+    Container(child: const Card1(),),
+    Container(child: const Card2(),),
     Container(color: Colors.blue,)
   ];
   //9
@@ -37,6 +39,8 @@ class _HomeState extends State<Home> {
          bottomNavigationBar: BottomNavigationBar(
            selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,
            //Set selected tab bar
+           currentIndex: _selectedIndex,
+           onTap: _onItemTapped,
            items: [
              const BottomNavigationBarItem(
                icon: Icon(Icons.card_giftcard),
